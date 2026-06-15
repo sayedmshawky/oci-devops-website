@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO ── -->
+  <title>OCI DevOps — End-to-End CI/CD on Oracle Cloud | خدمات DevOps على Oracle Cloud</title>
+  <meta name="description" content="Accelerate software delivery with Oracle Cloud Infrastructure DevOps. Fully managed CI/CD pipelines, Kubernetes deployments, Blue/Green strategies, and enterprise-grade security. Available in English and Arabic." />
+  <meta name="keywords"    content="OCI DevOps, Oracle Cloud, CI/CD, Kubernetes, OKE, DevOps pipeline, cloud deployment, Arabic, English" />
+  <meta name="author"      content="Oracle Cloud Infrastructure" />
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:title"       content="OCI DevOps — End-to-End CI/CD on Oracle Cloud" />
+  <meta property="og:description" content="Fully managed CI/CD platform on Oracle Cloud Infrastructure. Deploy faster, safer, smarter." />
+  <meta property="og:image"       content="hero.png" />
+  <meta property="og:type"        content="website" />
+
+  <!-- ── Fonts ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- ── Stylesheet ── -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background blobs -->
+  <div class="bg-blob bg-blob-1" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob-2" aria-hidden="true"></div>
+
+  <!-- ================================================================
+       NAVIGATION
+  ================================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="#" class="nav-logo" id="nav-home-link">
+        <div class="nav-logo-icon">OCI</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-top">Oracle Cloud</span>
+          <span class="nav-logo-bottom">DevOps</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" id="nav-links-list">
+        <li><a href="#services"  id="nav-services">
+          <span class="content-en">Services</span>
+          <span class="content-ar">الخدمات</span>
+        </a></li>
+        <li><a href="#pipeline"  id="nav-pipeline">
+          <span class="content-en">Pipeline</span>
+          <span class="content-ar">خط الأنابيب</span>
+        </a></li>
+        <li><a href="#deploy"    id="nav-deploy">
+          <span class="content-en">Deployment</span>
+          <span class="content-ar">النشر</span>
+        </a></li>
+        <li><a href="#why"       id="nav-why">
+          <span class="content-en">Why OCI</span>
+          <span class="content-ar">لماذا OCI</span>
+        </a></li>
+        <li><a href="#contact"   id="nav-contact">
+          <span class="content-en">Contact</span>
+          <span class="content-ar">تواصل معنا</span>
+        </a></li>
+      </ul>
+
+      <!-- Controls -->
+      <div class="nav-controls">
+        <!-- Language toggle -->
+        <div class="lang-toggle" role="group" aria-label="Language selector">
+          <button class="lang-btn active" id="lang-en" aria-label="Switch to English">EN</button>
+          <button class="lang-btn"        id="lang-ar" aria-label="التبديل إلى العربية">AR</button>
+        </div>
+
+        <!-- CTA button (desktop) -->
+        <a href="https://cloud.oracle.com/devops" target="_blank" rel="noopener" class="btn btn-primary" id="nav-cta-btn" style="padding: 10px 22px; font-size: 0.88rem;">
+          <span class="content-en">Get Started</span>
+          <span class="content-ar">ابدأ الآن</span>
+        </a>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="#services" id="mob-services">
+      <span class="content-en">Services</span><span class="content-ar">الخدمات</span>
+    </a>
+    <a href="#pipeline" id="mob-pipeline">
+      <span class="content-en">Pipeline</span><span class="content-ar">خط الأنابيب</span>
+    </a>
+    <a href="#deploy" id="mob-deploy">
+      <span class="content-en">Deployment</span><span class="content-ar">النشر</span>
+    </a>
+    <a href="#why" id="mob-why">
+      <span class="content-en">Why OCI</span><span class="content-ar">لماذا OCI</span>
+    </a>
+    <a href="#contact" id="mob-contact">
+      <span class="content-en">Contact</span><span class="content-ar">تواصل معنا</span>
+    </a>
+  </div>
+
+  <!-- ================================================================
+       HERO SECTION
+  ================================================================ -->
+  <section class="hero" id="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-image-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="tag" id="hero-tag">
+          <span class="content-en">🚀 Oracle Cloud Infrastructure</span>
+          <span class="content-ar">🚀 البنية التحتية لـ Oracle Cloud</span>
+        </div>
+
+        <h1 class="hero-title" id="hero-heading">
+          <span class="content-en">Accelerate Your Delivery<br/>with <span>OCI DevOps</span></span>
+          <span class="content-ar">سرّع عملية تسليمك<br/>مع <span>OCI DevOps</span></span>
+        </h1>
+
+        <p class="hero-subtitle" id="hero-subtitle">
+          <span class="content-en">A fully managed, end-to-end CI/CD platform on Oracle Cloud. Build, test, and deploy applications faster — with enterprise-grade security, governance, and observability built in.</span>
+          <span class="content-ar">منصة CI/CD متكاملة ومُدارة بالكامل على Oracle Cloud. ابنِ واختبر وانشر تطبيقاتك بشكل أسرع — مع الأمان والحوكمة والمراقبة على مستوى المؤسسات مدمجة في الأساس.</span>
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://cloud.oracle.com/devops" target="_blank" rel="noopener" class="btn btn-primary" id="hero-cta-primary">
+            <span>⚡</span>
+            <span class="content-en">Start for Free</span>
+            <span class="content-ar">ابدأ مجاناً</span>
+          </a>
+          <a href="#services" class="btn btn-outline" id="hero-cta-secondary">
+            <span class="content-en">Explore Services</span>
+            <span class="content-ar">استكشف الخدمات</span>
+            <span>↓</span>
+          </a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value">
+              <span class="stat-number" data-target="99" data-suffix=".9%">99.9%</span>
+            </div>
+            <div class="hero-stat-label">
+              <span class="content-en">Uptime SLA</span>
+              <span class="content-ar">اتفاقية مستوى الخدمة</span>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">
+              <span class="stat-number" data-target="50" data-suffix="+">50+</span>
+            </div>
+            <div class="hero-stat-label">
+              <span class="content-en">Deploy Targets</span>
+              <span class="content-ar">أهداف النشر</span>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">
+              <span class="stat-number" data-target="0" data-suffix="$0">$0</span>
+            </div>
+            <div class="hero-stat-label">
+              <span class="content-en">Idle Cost</span>
+              <span class="content-ar">تكلفة الخمول</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.hero-content -->
+
+      <!-- Floating badges -->
+      <div class="hero-badges" aria-hidden="true">
+        <div class="hero-badge">
+          <div class="badge-icon red">🔴</div>
+          <div class="badge-text">
+            <strong><span class="content-en">Build Pipeline</span><span class="content-ar">خط البناء</span></strong>
+            <span><span class="content-en">Running • 2m 18s</span><span class="content-ar">يعمل • ٢:١٨</span></span>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <div class="badge-icon blue">🔵</div>
+          <div class="badge-text">
+            <strong><span class="content-en">OKE Deployment</span><span class="content-ar">نشر OKE</span></strong>
+            <span><span class="content-en">✓ Succeeded • 3 pods</span><span class="content-ar">✓ نجح • ٣ حاويات</span></span>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <div class="badge-icon green">🟢</div>
+          <div class="badge-text">
+            <strong><span class="content-en">Canary Release</span><span class="content-ar">إصدار تدريجي</span></strong>
+            <span><span class="content-en">10% → 100% traffic</span><span class="content-ar">١٠٪ ← ١٠٠٪ حركة</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ================================================================
+       PIPELINE ANIMATION
+  ================================================================ -->
+  <section class="pipeline-section" id="pipeline" aria-labelledby="pipeline-heading">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom: 40px;">
+        <div class="tag">
+          <span class="content-en">⚙️ CI/CD Pipeline</span>
+          <span class="content-ar">⚙️ خط CI/CD</span>
+        </div>
+        <h2 class="section-title animate-on-scroll" id="pipeline-heading">
+          <span class="content-en">From Code to Production in Minutes</span>
+          <span class="content-ar">من الكود إلى الإنتاج في دقائق</span>
+        </h2>
+        <p class="section-subtitle animate-on-scroll delay-1" style="margin: 0 auto;">
+          <span class="content-en">OCI DevOps automates every stage of your software delivery workflow with built-in quality gates and approvals.</span>
+          <span class="content-ar">يعمل OCI DevOps على أتمتة كل مرحلة من مراحل سير عمل توصيل البرامج مع بوابات جودة وموافقات مدمجة.</span>
+        </p>
+      </div>
+
+      <div class="pipeline-track animate-on-scroll delay-2">
+
+        <!-- Step 1: Code -->
+        <div class="pipeline-step" id="pipe-step-1">
+          <div class="pipeline-step-icon" style="background: rgba(199,70,52,0.1);">💻</div>
+          <div class="pipeline-step-label">
+            <span class="content-en">Code</span>
+            <span class="content-ar">الكود</span>
+          </div>
+        </div>
+
+        <div class="pipeline-connector" id="pipe-conn-1">
+          <div class="pipeline-connector-line"></div>
+          <div class="pipeline-connector-fill"></div>
+          <div class="pipeline-dot"></div>
+        </div>
+
+        <!-- Step 2: Build -->
+        <div class="pipeline-step" id="pipe-step-2">
+          <div class="pipeline-step-icon" style="background: rgba(74,144,217,0.1);">🔨</div>
+          <div class="pipeline-step-label">
+            <span class="content-en">Build</span>
+            <span class="content-ar">البناء</span>
+          </div>
+        </div>
+
+        <div class="pipeline-connector" id="pipe-conn-2">
+          <div class="pipeline-connector-line"></div>
+          <div class="pipeline-connector-fill"></div>
+          <div class="pipeline-dot" style="animation-delay: 0.7s;"></div>
+        </div>
+
+        <!-- Step 3: Test -->
+        <div class="pipeline-step" id="pipe-step-3">
+          <div class="pipeline-step-icon" style="background: rgba(52,199,89,0.1);">🧪</div>
+          <div class="pipeline-step-label">
+            <span class="content-en">Test</span>
+            <span class="content-ar">الاختبار</span>
+          </div>
+        </div>
+
+        <div class="pipeline-connector" id="pipe-conn-3">
+          <div class="pipeline-connector-line"></div>
+          <div class="pipeline-connector-fill"></div>
+          <div class="pipeline-dot" style="animation-delay: 1.4s;"></div>
+        </div>
+
+        <!-- Step 4: Artifacts -->
+        <div class="pipeline-step" id="pipe-step-4">
+          <div class="pipeline-step-icon" style="background: rgba(245,166,35,0.1);">📦</div>
+          <div class="pipeline-step-label">
+            <span class="content-en">Package</span>
+            <span class="content-ar">التعبئة</span>
+          </div>
+        </div>
+
+        <div class="pipeline-connector" id="pipe-conn-4">
+          <div class="pipeline-connector-line"></div>
+          <div class="pipeline-connector-fill"></div>
+          <div class="pipeline-dot" style="animation-delay: 2.1s;"></div>
+        </div>
+
+        <!-- Step 5: Approve -->
+        <div class="pipeline-step" id="pipe-step-5">
+          <div class="pipeline-step-icon" style="background: rgba(147,51,234,0.1);">✅</div>
+          <div class="pipeline-step-label">
+            <span class="content-en">Approve</span>
+            <span class="content-ar">الموافقة</span>
+          </div>
+        </div>
+
+        <div class="pipeline-connector" id="pipe-conn-5">
+          <div class="pipeline-connector-line"></div>
+          <div class="pipeline-connector-fill"></div>
+          <div class="pipeline-dot" style="animation-delay: 2.8s;"></div>
+        </div>
+
+        <!-- Step 6: Deploy -->
+        <div class="pipeline-step" id="pipe-step-6">
+          <div class="pipeline-step-icon" style="background: rgba(20,184,166,0.1);">🚀</div>
+          <div class="pipeline-step-label">
+            <span class="content-en">Deploy</span>
+            <span class="content-ar">النشر</span>
+          </div>
+        </div>
+
+        <div class="pipeline-connector" id="pipe-conn-6">
+          <div class="pipeline-connector-line"></div>
+          <div class="pipeline-connector-fill"></div>
+          <div class="pipeline-dot" style="animation-delay: 3.5s;"></div>
+        </div>
+
+        <!-- Step 7: Monitor -->
+        <div class="pipeline-step" id="pipe-step-7">
+          <div class="pipeline-step-icon" style="background: rgba(199,70,52,0.1);">📊</div>
+          <div class="pipeline-step-label">
+            <span class="content-en">Monitor</span>
+            <span class="content-ar">المراقبة</span>
+          </div>
+        </div>
+
+      </div><!-- /.pipeline-track -->
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ================================================================
+       SERVICES SECTION
+  ================================================================ -->
+  <main>
+  <section class="services-section" id="services" aria-labelledby="services-heading">
+    <div class="container">
+
+      <div class="tag">
+        <span class="content-en">🛠️ Core Services</span>
+        <span class="content-ar">🛠️ الخدمات الأساسية</span>
+      </div>
+      <h2 class="section-title animate-on-scroll" id="services-heading">
+        <span class="content-en">Everything You Need to Ship Faster</span>
+        <span class="content-ar">كل ما تحتاجه لتسليم أسرع</span>
+      </h2>
+      <p class="section-subtitle animate-on-scroll delay-1">
+        <span class="content-en">OCI DevOps provides a complete set of cloud-native tools covering the full software development lifecycle.</span>
+        <span class="content-ar">يوفر OCI DevOps مجموعة كاملة من الأدوات السحابية الأصلية التي تغطي دورة حياة تطوير البرمجيات بالكامل.</span>
+      </p>
+
+      <div class="services-grid">
+
+        <!-- Card 1: Code Repositories -->
+        <article class="service-card animate-on-scroll delay-1" aria-labelledby="svc-repo-title">
+          <div class="service-icon icon-red">📁</div>
+          <h3 class="service-title" id="svc-repo-title">
+            <span class="content-en">Code Repositories</span>
+            <span class="content-ar">مستودعات الكود</span>
+          </h3>
+          <p class="service-desc">
+            <span class="content-en">Private Git repositories hosted on OCI with pull requests, code reviews, branch protection rules, and repository insights. Scale without limits.</span>
+            <span class="content-ar">مستودعات Git خاصة مستضافة على OCI مع طلبات السحب ومراجعات الكود وقواعد حماية الفروع ورؤى المستودعات. تطور بلا حدود.</span>
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">Git</span>
+            <span class="service-tag">Pull Requests</span>
+            <span class="service-tag">
+              <span class="content-en">Code Review</span>
+              <span class="content-ar">مراجعة الكود</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 2: Build Pipelines -->
+        <article class="service-card animate-on-scroll delay-2" aria-labelledby="svc-build-title">
+          <div class="service-icon icon-blue">🔨</div>
+          <h3 class="service-title" id="svc-build-title">
+            <span class="content-en">Build Pipelines (CI)</span>
+            <span class="content-ar">خطوط البناء (CI)</span>
+          </h3>
+          <p class="service-desc">
+            <span class="content-en">Automated build stages that compile, test, and package your code. Run parallel stages, use managed build runners, and cache dependencies for speed.</span>
+            <span class="content-ar">مراحل بناء تلقائية تجمع وتختبر وتعبّئ الكود. شغّل مراحل متوازية واستخدم منفذي بناء مُدارين وخزّن التبعيات للسرعة.</span>
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">CI</span>
+            <span class="service-tag">
+              <span class="content-en">Parallel Stages</span>
+              <span class="content-ar">مراحل متوازية</span>
+            </span>
+            <span class="service-tag">
+              <span class="content-en">Build Cache</span>
+              <span class="content-ar">ذاكرة البناء</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 3: Deployment Pipelines -->
+        <article class="service-card animate-on-scroll delay-3" aria-labelledby="svc-deploy-title">
+          <div class="service-icon icon-green">🚀</div>
+          <h3 class="service-title" id="svc-deploy-title">
+            <span class="content-en">Deployment Pipelines (CD)</span>
+            <span class="content-ar">خطوط النشر (CD)</span>
+          </h3>
+          <p class="service-desc">
+            <span class="content-en">Deploy to OCI Compute, OKE Kubernetes clusters, or Oracle Functions. Supports Blue-Green and Canary strategies with automatic traffic shifting and rollback.</span>
+            <span class="content-ar">انشر على OCI Compute أو مجموعات OKE Kubernetes أو Oracle Functions. يدعم استراتيجيات Blue-Green وCanary مع تحويل تلقائي للحركة والتراجع.</span>
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">CD</span>
+            <span class="service-tag">Blue-Green</span>
+            <span class="service-tag">Canary</span>
+          </div>
+        </article>
+
+        <!-- Card 4: Security & Vault -->
+        <article class="service-card animate-on-scroll delay-4" aria-labelledby="svc-sec-title">
+          <div class="service-icon icon-purple">🔒</div>
+          <h3 class="service-title" id="svc-sec-title">
+            <span class="content-en">Security & OCI Vault</span>
+            <span class="content-ar">الأمان وOCI Vault</span>
+          </h3>
+          <p class="service-desc">
+            <span class="content-en">Securely manage secrets, certificates, and encryption keys with OCI Vault integration. Role-based access with IAM policies and audit logging across every pipeline step.</span>
+            <span class="content-ar">إدارة آمنة للأسرار والشهادات ومفاتيح التشفير مع تكامل OCI Vault. وصول قائم على الأدوار مع سياسات IAM وتسجيل تدقيق في كل خطوة من خطوات خط الأنابيب.</span>
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">OCI Vault</span>
+            <span class="service-tag">IAM</span>
+            <span class="service-tag">
+              <span class="content-en">Secrets</span>
+              <span class="content-ar">أسرار</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 5: OKE & Kubernetes -->
+        <article class="service-card animate-on-scroll delay-5" aria-labelledby="svc-oke-title">
+          <div class="service-icon icon-teal">☸️</div>
+          <h3 class="service-title" id="svc-oke-title">
+            <span class="content-en">OKE Kubernetes Integration</span>
+            <span class="content-ar">تكامل OKE Kubernetes</span>
+          </h3>
+          <p class="service-desc">
+            <span class="content-en">First-class integration with Oracle Kubernetes Engine. Deploy containerized workloads to OKE clusters with private endpoint support, namespace targeting, and Helm chart deployments.</span>
+            <span class="content-ar">تكامل من الدرجة الأولى مع Oracle Kubernetes Engine. انشر أحمال العمل الحاوية على مجموعات OKE مع دعم نقطة النهاية الخاصة واستهداف namespace ونشر Helm.</span>
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">OKE</span>
+            <span class="service-tag">Kubernetes</span>
+            <span class="service-tag">Helm</span>
+          </div>
+        </article>
+
+        <!-- Card 6: Observability -->
+        <article class="service-card animate-on-scroll delay-6" aria-labelledby="svc-obs-title">
+          <div class="service-icon icon-orange">📊</div>
+          <h3 class="service-title" id="svc-obs-title">
+            <span class="content-en">Observability & Logging</span>
+            <span class="content-ar">المراقبة والتسجيل</span>
+          </h3>
+          <p class="service-desc">
+            <span class="content-en">Real-time visibility into build and deployment pipelines via OCI Logging and Monitoring integration. Create custom dashboards, alerts, and trace pipeline execution history.</span>
+            <span class="content-ar">رؤية في الوقت الفعلي لخطوط البناء والنشر عبر تكامل OCI Logging وMonitoring. أنشئ لوحات تحكم مخصصة وتنبيهات وتتبع سجل تنفيذ خط الأنابيب.</span>
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">OCI Logging</span>
+            <span class="service-tag">
+              <span class="content-en">Monitoring</span>
+              <span class="content-ar">المراقبة</span>
+            </span>
+            <span class="service-tag">
+              <span class="content-en">Alerts</span>
+              <span class="content-ar">تنبيهات</span>
+            </span>
+          </div>
+        </article>
+
+      </div><!-- /.services-grid -->
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ================================================================
+       DEPLOYMENT TARGETS SECTION
+  ================================================================ -->
+  <section class="deploy-section" id="deploy" aria-labelledby="deploy-heading">
+    <div class="container">
+      <div class="deploy-grid">
+
+        <!-- Left: Visual -->
+        <div class="deploy-visual animate-on-scroll" aria-hidden="true">
+          <div style="position: relative; height: 340px; display: flex; align-items: center; justify-content: center;">
+            <div class="deploy-ring"></div>
+            <div class="deploy-ring"></div>
+            <div class="deploy-center">🎯</div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="animate-on-scroll delay-2">
+          <div class="tag">
+            <span class="content-en">🎯 Deployment Targets</span>
+            <span class="content-ar">🎯 أهداف النشر</span>
+          </div>
+          <h2 class="section-title" id="deploy-heading">
+            <span class="content-en">Deploy Anywhere on OCI</span>
+            <span class="content-ar">انشر في أي مكان على OCI</span>
+          </h2>
+          <p class="section-subtitle" style="margin-bottom: 32px;">
+            <span class="content-en">One pipeline, multiple targets. OCI DevOps supports rolling, blue-green, and canary releases across all OCI compute services.</span>
+            <span class="content-ar">خط أنابيب واحد، أهداف متعددة. يدعم OCI DevOps الإصدارات المتدرجة وblue-green وcanary عبر جميع خدمات OCI الحوسبية.</span>
+          </p>
+
+          <div class="deploy-targets-list">
+
+            <div class="deploy-target-item">
+              <div class="deploy-target-icon icon-blue">☸️</div>
+              <div class="deploy-target-info">
+                <strong>Oracle Kubernetes Engine (OKE)</strong>
+                <span><span class="content-en">Containerized workloads, Helm charts, private clusters</span><span class="content-ar">أحمال العمل الحاوية، Helm، المجموعات الخاصة</span></span>
+              </div>
+            </div>
+
+            <div class="deploy-target-item">
+              <div class="deploy-target-icon icon-red">💻</div>
+              <div class="deploy-target-info">
+                <strong><span class="content-en">OCI Compute Instances</span><span class="content-ar">مثيلات OCI الحوسبية</span></strong>
+                <span><span class="content-en">VM / Bare Metal rolling deployments with instance groups</span><span class="content-ar">نشر متدرج على الأجهزة الافتراضية والمعدنية</span></span>
+              </div>
+            </div>
+
+            <div class="deploy-target-item">
+              <div class="deploy-target-icon icon-orange">⚡</div>
+              <div class="deploy-target-info">
+                <strong>Oracle Functions</strong>
+                <span><span class="content-en">Serverless functions — zero infrastructure to manage</span><span class="content-ar">وظائف بلا خادم — بنية تحتية صفرية للإدارة</span></span>
+              </div>
+            </div>
+
+            <div class="deploy-target-item">
+              <div class="deploy-target-icon icon-green">🔵</div>
+              <div class="deploy-target-info">
+                <strong><span class="content-en">Blue-Green Strategy</span><span class="content-ar">استراتيجية Blue-Green</span></strong>
+                <span><span class="content-en">Zero-downtime deployments with instant switchover</span><span class="content-ar">نشر بدون توقف مع تحويل فوري</span></span>
+              </div>
+            </div>
+
+            <div class="deploy-target-item">
+              <div class="deploy-target-icon icon-purple">🐦</div>
+              <div class="deploy-target-info">
+                <strong><span class="content-en">Canary Releases</span><span class="content-ar">الإصدارات التدريجية (Canary)</span></strong>
+                <span><span class="content-en">Gradual traffic shifting from 1% to 100% with auto-rollback</span><span class="content-ar">تحويل تدريجي للحركة من ١٪ إلى ١٠٠٪ مع تراجع تلقائي</span></span>
+              </div>
+            </div>
+
+          </div><!-- /.deploy-targets-list -->
+        </div>
+
+      </div><!-- /.deploy-grid -->
+    </div>
+  </section>
+
+  <!-- ================================================================
+       WHY OCI SECTION
+  ================================================================ -->
+  <section class="why-section" id="why" aria-labelledby="why-heading">
+    <div class="container">
+
+      <div style="text-align: center;">
+        <div class="tag">
+          <span class="content-en">✨ Why Choose OCI DevOps</span>
+          <span class="content-ar">✨ لماذا تختار OCI DevOps</span>
+        </div>
+        <h2 class="section-title animate-on-scroll" id="why-heading">
+          <span class="content-en">Built for Enterprise Scale</span>
+          <span class="content-ar">مبني لنطاق المؤسسات</span>
+        </h2>
+        <p class="section-subtitle animate-on-scroll delay-1" style="margin: 0 auto 0 auto;">
+          <span class="content-en">OCI DevOps combines the simplicity of a managed service with the power of Oracle's global cloud infrastructure.</span>
+          <span class="content-ar">يجمع OCI DevOps بين بساطة الخدمة المُدارة وقوة البنية التحتية السحابية العالمية من Oracle.</span>
+        </p>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-grid">
+        <div class="stat-card animate-on-scroll delay-1">
+          <div class="stat-number" data-target="99" data-suffix=".9%">0%</div>
+          <div class="stat-label">
+            <span class="content-en">Platform Uptime SLA</span>
+            <span class="content-ar">اتفاقية مستوى الخدمة</span>
+          </div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-2">
+          <div class="stat-number" data-target="0" data-suffix="$0">$0</div>
+          <div class="stat-label">
+            <span class="content-en">Cost When Idle</span>
+            <span class="content-ar">التكلفة عند الخمول</span>
+          </div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-3">
+          <div class="stat-number" data-target="40" data-suffix="+">0+</div>
+          <div class="stat-label">
+            <span class="content-en">OCI Regions Worldwide</span>
+            <span class="content-ar">منطقة OCI حول العالم</span>
+          </div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-4">
+          <div class="stat-number" data-target="100" data-suffix="%">0%</div>
+          <div class="stat-label">
+            <span class="content-en">Managed Infrastructure</span>
+            <span class="content-ar">بنية تحتية مُدارة</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits grid -->
+      <div class="benefits-grid" style="margin-top: 64px;">
+
+        <div class="benefit-item animate-on-scroll delay-1">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">
+            <strong><span class="content-en">Pay-as-You-Go Pricing</span><span class="content-ar">الدفع حسب الاستخدام</span></strong>
+            <span><span class="content-en">No upfront costs. You only pay for compute time during builds and deployments — zero cost when pipelines are idle.</span><span class="content-ar">لا تكاليف مقدمة. تدفع فقط مقابل وقت الحوسبة أثناء البناء والنشر — تكلفة صفر عند خمول خطوط الأنابيب.</span></span>
+          </div>
+        </div>
+
+        <div class="benefit-item animate-on-scroll delay-2">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">
+            <strong><span class="content-en">Enterprise Governance</span><span class="content-ar">حوكمة المؤسسات</span></strong>
+            <span><span class="content-en">Built-in approval gates, audit trails, and RBAC via OCI IAM ensure full control over every deployment.</span><span class="content-ar">بوابات موافقة مدمجة ومسارات تدقيق وRBAC عبر OCI IAM تضمن السيطرة الكاملة على كل عملية نشر.</span></span>
+          </div>
+        </div>
+
+        <div class="benefit-item animate-on-scroll delay-3">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">
+            <strong><span class="content-en">Auto-Scaling</span><span class="content-ar">التوسع التلقائي</span></strong>
+            <span><span class="content-en">Build runners scale on-demand. Never wait for resources — OCI provisions managed compute automatically for every build.</span><span class="content-ar">تتوسع منفذات البناء حسب الطلب. لا انتظار على الموارد — يوفر OCI حوسبة مُدارة تلقائياً لكل بناء.</span></span>
+          </div>
+        </div>
+
+        <div class="benefit-item animate-on-scroll delay-4">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">
+            <strong><span class="content-en">Infrastructure as Code</span><span class="content-ar">البنية التحتية كود</span></strong>
+            <span><span class="content-en">Deep integration with OCI Resource Manager (Terraform) to provision infrastructure alongside application deployments.</span><span class="content-ar">تكامل عميق مع OCI Resource Manager (Terraform) لتوفير البنية التحتية جنباً إلى جنب مع نشر التطبيقات.</span></span>
+          </div>
+        </div>
+
+        <div class="benefit-item animate-on-scroll delay-5">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">
+            <strong><span class="content-en">Security by Default</span><span class="content-ar">الأمان افتراضياً</span></strong>
+            <span><span class="content-en">OCI Vault for secrets, end-to-end encryption, private endpoint support, and compliance with global security standards.</span><span class="content-ar">OCI Vault للأسرار، تشفير من طرف إلى طرف، دعم نقطة النهاية الخاصة، والامتثال لمعايير الأمان العالمية.</span></span>
+          </div>
+        </div>
+
+        <div class="benefit-item animate-on-scroll delay-6">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">
+            <strong><span class="content-en">Multi-Region Availability</span><span class="content-ar">التوفر متعدد المناطق</span></strong>
+            <span><span class="content-en">Deploy to 40+ OCI regions worldwide. Use multi-region pipelines for disaster recovery and global distribution.</span><span class="content-ar">انشر في أكثر من ٤٠ منطقة OCI حول العالم. استخدم خطوط أنابيب متعددة المناطق للتعافي من الكوارث والتوزيع العالمي.</span></span>
+          </div>
+        </div>
+
+      </div><!-- /.benefits-grid -->
+    </div>
+  </section>
+
+  <!-- ================================================================
+       CTA SECTION
+  ================================================================ -->
+  <section class="cta-section" id="contact" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-card animate-on-scroll">
+
+        <div class="tag" style="display: inline-block; margin-bottom: 24px;">
+          <span class="content-en">🚀 Get Started Today</span>
+          <span class="content-ar">🚀 ابدأ اليوم</span>
+        </div>
+
+        <h2 class="cta-title" id="cta-heading">
+          <span class="content-en">Ready to Modernize Your<br/>Software Delivery?</span>
+          <span class="content-ar">هل أنت مستعد لتحديث<br/>تسليم برمجياتك؟</span>
+        </h2>
+
+        <p class="cta-subtitle">
+          <span class="content-en">Start with OCI DevOps today. No infrastructure to manage, no upfront cost — just faster, safer software delivery at scale.</span>
+          <span class="content-ar">ابدأ مع OCI DevOps اليوم. لا بنية تحتية للإدارة، لا تكاليف مقدمة — فقط تسليم برمجيات أسرع وأكثر أماناً على نطاق واسع.</span>
+        </p>
+
+        <div class="cta-actions">
+          <a href="https://cloud.oracle.com/devops" target="_blank" rel="noopener" class="btn btn-primary" id="cta-primary-btn">
+            <span>⚡</span>
+            <span class="content-en">Start Free on OCI</span>
+            <span class="content-ar">ابدأ مجاناً على OCI</span>
+          </a>
+          <a href="https://docs.oracle.com/en-us/iaas/Content/devops/using/home.htm" target="_blank" rel="noopener" class="btn btn-outline" id="cta-docs-btn">
+            <span>📚</span>
+            <span class="content-en">Read Documentation</span>
+            <span class="content-ar">اقرأ التوثيق</span>
+          </a>
+        </div>
+
+      </div><!-- /.cta-card -->
+    </div>
+  </section>
+  </main>
+
+  <!-- ================================================================
+       FOOTER
+  ================================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <strong>OCI DevOps</strong> &nbsp;·&nbsp;
+          <span class="content-en">© 2025 Oracle Corporation. All rights reserved.</span>
+          <span class="content-ar">© ٢٠٢٥ Oracle Corporation. جميع الحقوق محفوظة.</span>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="https://cloud.oracle.com/devops"    target="_blank" rel="noopener" id="footer-product">
+            <span class="content-en">OCI DevOps</span><span class="content-ar">OCI DevOps</span>
+          </a></li>
+          <li><a href="https://docs.oracle.com/en-us/iaas/Content/devops/using/home.htm" target="_blank" rel="noopener" id="footer-docs">
+            <span class="content-en">Docs</span><span class="content-ar">التوثيق</span>
+          </a></li>
+          <li><a href="https://www.oracle.com/cloud/pricing/" target="_blank" rel="noopener" id="footer-pricing">
+            <span class="content-en">Pricing</span><span class="content-ar">الأسعار</span>
+          </a></li>
+          <li><a href="https://www.oracle.com/support/"   target="_blank" rel="noopener" id="footer-support">
+            <span class="content-en">Support</span><span class="content-ar">الدعم</span>
+          </a></li>
+        </ul>
+
+        <!-- Footer language toggle -->
+        <div class="lang-toggle">
+          <button class="lang-btn" id="footer-lang-en" onclick="document.getElementById('lang-en').click()">EN</button>
+          <button class="lang-btn" id="footer-lang-ar" onclick="document.getElementById('lang-ar').click()">AR</button>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ── -->
+  <script src="script.js"></script>
+
+</body>
+</html>
