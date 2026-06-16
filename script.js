@@ -225,13 +225,13 @@ if (projectForm) {
       'Please contact the customer to discuss next steps.'
     ];
 
-    const mailto = `mailto:contact@ociops.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    const mailto = `mailto:support@ociops.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
     window.location.href = mailto;
 
     if (formNote) {
       formNote.classList.add('success');
-      formNote.querySelector('.content-en').textContent = 'Email draft opened. Send it to contact the customer.';
-      formNote.querySelector('.content-ar').textContent = 'تم فتح مسودة البريد الإلكتروني. أرسلها للتواصل مع العميل.';
+      formNote.querySelector('.content-en').textContent = 'Email draft opened for support@ociops.com. Send it to submit the request.';
+      formNote.querySelector('.content-ar').textContent = 'تم فتح مسودة بريد إلى support@ociops.com. أرسلها لتقديم الطلب.';
     }
   });
 }
