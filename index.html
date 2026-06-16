@@ -78,7 +78,7 @@
         </div>
 
         <!-- CTA button (desktop) -->
-        <a href="https://cloud.oracle.com/devops" target="_blank" rel="noopener" class="btn btn-primary" id="nav-cta-btn" style="padding: 10px 22px; font-size: 0.88rem;">
+        <a href="#contact" class="btn btn-primary" id="nav-cta-btn" style="padding: 10px 22px; font-size: 0.88rem;">
           <span class="content-en">Get Started</span>
           <span class="content-ar">ابدأ الآن</span>
         </a>
@@ -138,10 +138,10 @@
         </p>
 
         <div class="hero-actions">
-          <a href="https://cloud.oracle.com/devops" target="_blank" rel="noopener" class="btn btn-primary" id="hero-cta-primary">
+          <a href="#contact" class="btn btn-primary" id="hero-cta-primary">
             <span>⚡</span>
-            <span class="content-en">Start for Free</span>
-            <span class="content-ar">ابدأ مجاناً</span>
+            <span class="content-en">Start Your Project</span>
+            <span class="content-ar">ابدأ مشروعك</span>
           </a>
           <a href="#services" class="btn btn-outline" id="hero-cta-secondary">
             <span class="content-en">Explore Services</span>
@@ -684,32 +684,116 @@
     <div class="container">
       <div class="cta-card animate-on-scroll">
 
-        <div class="tag" style="display: inline-block; margin-bottom: 24px;">
-          <span class="content-en">🚀 Get Started Today</span>
-          <span class="content-ar">🚀 ابدأ اليوم</span>
-        </div>
+        <div class="contact-layout">
+          <div class="contact-copy">
+            <div class="tag">
+              <span class="content-en">🚀 Project Intake</span>
+              <span class="content-ar">🚀 بيانات المشروع</span>
+            </div>
 
-        <h2 class="cta-title" id="cta-heading">
-          <span class="content-en">Ready to Modernize Your<br/>Software Delivery?</span>
-          <span class="content-ar">هل أنت مستعد لتحديث<br/>تسليم برمجياتك؟</span>
-        </h2>
+            <h2 class="cta-title" id="cta-heading">
+              <span class="content-en">Tell Us About Your<br/>Cloud Project</span>
+              <span class="content-ar">أخبرنا عن<br/>مشروعك السحابي</span>
+            </h2>
 
-        <p class="cta-subtitle">
-          <span class="content-en">Start with OCI DevOps today. No infrastructure to manage, no upfront cost — just faster, safer software delivery at scale.</span>
-          <span class="content-ar">ابدأ مع OCI DevOps اليوم. لا بنية تحتية للإدارة، لا تكاليف مقدمة — فقط تسليم برمجيات أسرع وأكثر أماناً على نطاق واسع.</span>
-        </p>
+            <p class="cta-subtitle">
+              <span class="content-en">Share your project goals and contact details. Our team will review the request and get in touch to plan the right OCI DevOps path.</span>
+              <span class="content-ar">شاركنا أهداف المشروع وبيانات التواصل. سيقوم فريقنا بمراجعة الطلب والتواصل معك لتخطيط المسار المناسب على OCI DevOps.</span>
+            </p>
 
-        <div class="cta-actions">
-          <a href="https://cloud.oracle.com/devops" target="_blank" rel="noopener" class="btn btn-primary" id="cta-primary-btn">
-            <span>⚡</span>
-            <span class="content-en">Start Free on OCI</span>
-            <span class="content-ar">ابدأ مجاناً على OCI</span>
-          </a>
-          <a href="https://docs.oracle.com/en-us/iaas/Content/devops/using/home.htm" target="_blank" rel="noopener" class="btn btn-outline" id="cta-docs-btn">
-            <span>📚</span>
-            <span class="content-en">Read Documentation</span>
-            <span class="content-ar">اقرأ التوثيق</span>
-          </a>
+            <div class="contact-highlights" aria-label="Contact process highlights">
+              <div>
+                <strong><span class="content-en">Fast response</span><span class="content-ar">استجابة سريعة</span></strong>
+                <span><span class="content-en">Project review and first contact</span><span class="content-ar">مراجعة المشروع والتواصل الأول</span></span>
+              </div>
+              <div>
+                <strong><span class="content-en">Clear scope</span><span class="content-ar">نطاق واضح</span></strong>
+                <span><span class="content-en">CI/CD, OKE, security, and migration needs</span><span class="content-ar">احتياجات CI/CD وOKE والأمان والانتقال</span></span>
+              </div>
+            </div>
+          </div>
+
+          <form class="project-form" id="project-contact-form">
+            <div class="form-row">
+              <label for="customer-name">
+                <span class="content-en">Full name</span>
+                <span class="content-ar">الاسم الكامل</span>
+              </label>
+              <input type="text" id="customer-name" name="name" autocomplete="name" required />
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="customer-email">
+                  <span class="content-en">Email</span>
+                  <span class="content-ar">البريد الإلكتروني</span>
+                </label>
+                <input type="email" id="customer-email" name="email" autocomplete="email" required />
+              </div>
+              <div class="form-row">
+                <label for="customer-phone">
+                  <span class="content-en">Phone / WhatsApp</span>
+                  <span class="content-ar">الهاتف / واتساب</span>
+                </label>
+                <input type="tel" id="customer-phone" name="phone" autocomplete="tel" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="company-name">
+                <span class="content-en">Company</span>
+                <span class="content-ar">الشركة</span>
+              </label>
+              <input type="text" id="company-name" name="company" autocomplete="organization" />
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="project-type">
+                  <span class="content-en">Project type</span>
+                  <span class="content-ar">نوع المشروع</span>
+                </label>
+                <select id="project-type" name="projectType" required>
+                  <option value="" data-en="Select a service" data-ar="اختر الخدمة">Select a service</option>
+                  <option value="CI/CD Pipeline">CI/CD Pipeline</option>
+                  <option value="OKE Kubernetes">OKE Kubernetes</option>
+                  <option value="Cloud Migration">Cloud Migration</option>
+                  <option value="DevOps Consulting">DevOps Consulting</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="project-timeline">
+                  <span class="content-en">Timeline</span>
+                  <span class="content-ar">الجدول الزمني</span>
+                </label>
+                <select id="project-timeline" name="timeline" required>
+                  <option value="" data-en="Select timing" data-ar="اختر التوقيت">Select timing</option>
+                  <option value="Immediately">Immediately</option>
+                  <option value="Within 2 weeks">Within 2 weeks</option>
+                  <option value="Within 1 month">Within 1 month</option>
+                  <option value="Planning phase">Planning phase</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="project-details">
+                <span class="content-en">Project details</span>
+                <span class="content-ar">تفاصيل المشروع</span>
+              </label>
+              <textarea id="project-details" name="details" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit" id="cta-primary-btn">
+              <span>✉️</span>
+              <span class="content-en">Send Project Details</span>
+              <span class="content-ar">إرسال بيانات المشروع</span>
+            </button>
+            <p class="form-note" id="form-note" aria-live="polite">
+              <span class="content-en">This opens a prefilled email so we can contact the customer directly.</span>
+              <span class="content-ar">سيتم فتح بريد إلكتروني جاهز حتى نتمكن من التواصل مع العميل مباشرة.</span>
+            </p>
+          </form>
         </div>
 
       </div><!-- /.cta-card -->

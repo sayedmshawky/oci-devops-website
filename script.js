@@ -31,15 +31,16 @@ function setLanguage(lang) {
     langBtnAr.classList.remove('active');
   }
 
+  document.querySelectorAll('option[data-en][data-ar]').forEach(option => {
+    option.textContent = option.dataset[lang];
+  });
+
   // Restart pipeline animation on lang change
   restartPipelineAnimation();
 }
 
 langBtnEn.addEventListener('click', () => setLanguage('en'));
 langBtnAr.addEventListener('click', () => setLanguage('ar'));
-
-// Apply saved language on load
-setLanguage(currentLang);
 
 /* ── Navigation: Scroll Effect ── */
 const nav = document.querySelector('.nav');
@@ -125,6 +126,9 @@ const pipelineObserver = new IntersectionObserver((entries) => {
 
 if (pipelineSection) pipelineObserver.observe(pipelineSection);
 
+// Apply saved language after pipeline animation helpers are ready.
+setLanguage(currentLang);
+
 /* ── Animated Number Counters ── */
 function animateCounter(el) {
   const target = parseInt(el.getAttribute('data-target'), 10);
@@ -182,5 +186,52 @@ if (hero) {
       const depth = (i + 1) * 0.4;
       b.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
     });
+  });
+}
+
+/* ── Project Contact Form ── */
+const projectForm = document.getElementById('project-contact-form');
+const formNote = document.getElementById('form-note');
+
+if (projectForm) {
+  projectForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!projectForm.reportValidity()) return;
+
+    const formData = new FormData(projectForm);
+    const name = formData.get('name')?.trim();
+    const email = formData.get('email')?.trim();
+    const phone = formData.get('phone')?.trim();
+    const company = formData.get('company')?.trim() || 'Not provided';
+    const projectType = formData.get('projectType');
+    const timeline = formData.get('timeline');
+    const details = formData.get('details')?.trim();
+
+    const subject = `New OCI DevOps project request - ${name}`;
+    const bodyLines = [
+      'New project request from ociops.com',
+      '',
+      `Customer name: ${name}`,
+      `Email: ${email}`,
+      `Phone / WhatsApp: ${phone}`,
+      `Company: ${company}`,
+      `Project type: ${projectType}`,
+      `Timeline: ${timeline}`,
+      '',
+      'Project details:',
+      details,
+      '',
+      'Please contact the customer to discuss next steps.'
+    ];
+
+    const mailto = `mailto:contact@ociops.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailto;
+
+    if (formNote) {
+      formNote.classList.add('success');
+      formNote.querySelector('.content-en').textContent = 'Email draft opened. Send it to contact the customer.';
+      formNote.querySelector('.content-ar').textContent = 'تم فتح مسودة البريد الإلكتروني. أرسلها للتواصل مع العميل.';
+    }
   });
 }
