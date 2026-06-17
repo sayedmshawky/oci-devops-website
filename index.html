@@ -356,8 +356,8 @@
         <span class="content-ar">كل ما تحتاجه لتسليم أسرع</span>
       </h2>
       <p class="section-subtitle animate-on-scroll delay-1">
-        <span class="content-en">OCI Ops provides cloud-native delivery services across OCI, Azure DevOps, GitHub, Kubernetes, and the platforms your teams already use.</span>
-        <span class="content-ar">توفر OCI Ops خدمات تسليم سحابية عبر OCI وAzure DevOps وGitHub وKubernetes والمنصات التي تستخدمها فرقك بالفعل.</span>
+        <span class="content-en">OCI Ops provides DevOps, Azure DevOps integration, cloud infrastructure, automation, and platform engineering services across the tools your teams already use.</span>
+        <span class="content-ar">توفر OCI Ops خدمات DevOps وتكامل Azure DevOps والبنية التحتية السحابية والأتمتة وهندسة المنصات عبر الأدوات التي تستخدمها فرقك بالفعل.</span>
       </p>
 
       <div class="services-grid">
@@ -506,6 +506,50 @@
             <span class="service-tag">
               <span class="content-en">All Platforms</span>
               <span class="content-ar">كل المنصات</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 8: Azure DevOps Integration -->
+        <article class="service-card animate-on-scroll delay-2" aria-labelledby="svc-ado-integration-title">
+          <div class="service-icon icon-purple">⚙️</div>
+          <h3 class="service-title" id="svc-ado-integration-title">
+            <span class="content-en">Azure DevOps Integration</span>
+            <span class="content-ar">تكامل Azure DevOps</span>
+          </h3>
+          <p class="service-desc">
+            <span class="content-en">Connect Azure DevOps with OCI, Azure, GitHub, Bitbucket, Jira, Slack, Teams, container registries, Kubernetes clusters, security scanners, and release approval workflows.</span>
+            <span class="content-ar">ربط Azure DevOps مع OCI وAzure وGitHub وBitbucket وJira وSlack وTeams وسجلات الحاويات ومجموعات Kubernetes وأدوات فحص الأمان وسير عمل موافقات الإصدار.</span>
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">ADO</span>
+            <span class="service-tag">Jira</span>
+            <span class="service-tag">Slack / Teams</span>
+            <span class="service-tag">
+              <span class="content-en">Release Gates</span>
+              <span class="content-ar">بوابات الإصدار</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 9: Cloud Infrastructure Services -->
+        <article class="service-card animate-on-scroll delay-3" aria-labelledby="svc-infra-title">
+          <div class="service-icon icon-teal">🏗️</div>
+          <h3 class="service-title" id="svc-infra-title">
+            <span class="content-en">Cloud Infrastructure Services</span>
+            <span class="content-ar">خدمات البنية التحتية السحابية</span>
+          </h3>
+          <p class="service-desc">
+            <span class="content-en">Plan, build, and automate secure cloud foundations: networking, compute, Kubernetes, load balancers, DNS, certificates, backups, monitoring, IAM, and infrastructure as code.</span>
+            <span class="content-ar">تخطيط وبناء وأتمتة الأساس السحابي الآمن: الشبكات والحوسبة وKubernetes وموازنات الأحمال وDNS والشهادات والنسخ الاحتياطي والمراقبة وIAM والبنية التحتية كود.</span>
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">Terraform</span>
+            <span class="service-tag">Networking</span>
+            <span class="service-tag">IAM</span>
+            <span class="service-tag">
+              <span class="content-en">Cloud Foundation</span>
+              <span class="content-ar">أساس سحابي</span>
             </span>
           </div>
         </article>
@@ -782,6 +826,9 @@
                 <select id="project-type" name="projectType" required>
                   <option value="" data-en="Select a service" data-ar="اختر الخدمة">Select a service</option>
                   <option value="CI/CD Pipeline">CI/CD Pipeline</option>
+                  <option value="Azure DevOps Setup">Azure DevOps Setup</option>
+                  <option value="Azure DevOps Integration">Azure DevOps Integration</option>
+                  <option value="Cloud Infrastructure Services">Cloud Infrastructure Services</option>
                   <option value="OKE Kubernetes">OKE Kubernetes</option>
                   <option value="Cloud Migration">Cloud Migration</option>
                   <option value="DevOps Consulting">DevOps Consulting</option>
