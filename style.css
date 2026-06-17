@@ -1169,6 +1169,12 @@ body.lang-ar .form-row select {
   margin-top: 4px;
 }
 
+.form-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
 .form-note {
   min-height: 22px;
   color: var(--color-text-muted);
@@ -1178,6 +1184,14 @@ body.lang-ar .form-row select {
 
 .form-note.success {
   color: #67D48A;
+}
+
+.form-note.error {
+  color: #FF8A80;
+}
+
+.form-botcheck {
+  display: none;
 }
 
 /* ================================================================

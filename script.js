@@ -192,14 +192,26 @@ if (hero) {
 /* ── Project Contact Form ── */
 const projectForm = document.getElementById('project-contact-form');
 const formNote = document.getElementById('form-note');
+const WEB3FORMS_ACCESS_KEY = '51d334ef-aab9-4249-b953-272c2ecec346';
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+
+function setFormNote(type, enText, arText) {
+  if (!formNote) return;
+
+  formNote.classList.remove('success', 'error');
+  if (type) formNote.classList.add(type);
+  formNote.querySelector('.content-en').textContent = enText;
+  formNote.querySelector('.content-ar').textContent = arText;
+}
 
 if (projectForm) {
-  projectForm.addEventListener('submit', (event) => {
+  projectForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     if (!projectForm.reportValidity()) return;
 
     const formData = new FormData(projectForm);
+    const submitButton = projectForm.querySelector('button[type="submit"]');
     const name = formData.get('name')?.trim();
     const email = formData.get('email')?.trim();
     const phone = formData.get('phone')?.trim();
@@ -225,13 +237,54 @@ if (projectForm) {
       'Please contact the customer to discuss next steps.'
     ];
 
-    const mailto = `mailto:support@ociops.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-    window.location.href = mailto;
+    formData.set('access_key', WEB3FORMS_ACCESS_KEY);
+    formData.set('subject', subject);
+    formData.set('from_name', 'OCI Ops Website');
+    formData.set('replyto', email);
+    formData.set('message', bodyLines.join('\n'));
 
-    if (formNote) {
-      formNote.classList.add('success');
-      formNote.querySelector('.content-en').textContent = 'Email draft opened for support@ociops.com. Send it to submit the request.';
-      formNote.querySelector('.content-ar').textContent = 'تم فتح مسودة بريد إلى support@ociops.com. أرسلها لتقديم الطلب.';
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.setAttribute('aria-busy', 'true');
+    }
+
+    setFormNote(
+      null,
+      'Sending your request...',
+      'جاري إرسال طلبك...'
+    );
+
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json'
+        },
+        body: formData
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Form submission failed.');
+      }
+
+      projectForm.reset();
+      setFormNote(
+        'success',
+        'Request sent successfully. We will contact you soon.',
+        'تم إرسال الطلب بنجاح. سنتواصل معك قريباً.'
+      );
+    } catch (error) {
+      setFormNote(
+        'error',
+        'Sorry, the request could not be sent. Please email support@ociops.com.',
+        'عذراً، تعذر إرسال الطلب. يرجى مراسلة support@ociops.com.'
+      );
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.removeAttribute('aria-busy');
+      }
     }
   });
 }
