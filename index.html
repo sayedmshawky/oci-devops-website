@@ -76,8 +76,9 @@
       <div class="nav-controls">
         <!-- Language toggle -->
         <div class="lang-toggle" role="group" aria-label="Language selector">
-          <button class="lang-btn active" id="lang-en" aria-label="Switch to English">EN</button>
-          <button class="lang-btn"        id="lang-ar" aria-label="التبديل إلى العربية">AR</button>
+          <button class="lang-btn active" id="lang-en" aria-label="Switch to English" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn"        id="lang-es" aria-label="Cambiar a español" onclick="setLanguage('es')">ES</button>
+          <button class="lang-btn"        id="lang-ar" aria-label="التبديل إلى العربية" onclick="setLanguage('ar')">AR</button>
         </div>
 
         <!-- CTA button (desktop) -->
@@ -893,7 +894,7 @@
                   <span class="content-ar">نوع المشروع</span>
                 </label>
                 <select id="project-type" name="projectType" required>
-                  <option value="" data-en="Select a service" data-ar="اختر الخدمة">Select a service</option>
+                  <option value="" data-en="Select a service" data-es="Selecciona un servicio" data-ar="اختر الخدمة">Select a service</option>
                   <option value="CI/CD Pipeline">CI/CD Pipeline</option>
                   <option value="Azure DevOps Setup">Azure DevOps Setup</option>
                   <option value="Azure DevOps Integration">Azure DevOps Integration</option>
@@ -912,7 +913,7 @@
                   <span class="content-ar">الجدول الزمني</span>
                 </label>
                 <select id="project-timeline" name="timeline" required>
-                  <option value="" data-en="Select timing" data-ar="اختر التوقيت">Select timing</option>
+                  <option value="" data-en="Select timing" data-es="Selecciona el plazo" data-ar="اختر التوقيت">Select timing</option>
                   <option value="Immediately">Immediately</option>
                   <option value="Within 2 weeks">Within 2 weeks</option>
                   <option value="Within 1 month">Within 1 month</option>
@@ -974,6 +975,7 @@
         <!-- Footer language toggle -->
         <div class="lang-toggle">
           <button class="lang-btn" id="footer-lang-en" onclick="document.getElementById('lang-en').click()">EN</button>
+          <button class="lang-btn" id="footer-lang-es" onclick="document.getElementById('lang-es').click()">ES</button>
           <button class="lang-btn" id="footer-lang-ar" onclick="document.getElementById('lang-ar').click()">AR</button>
         </div>
 
@@ -982,7 +984,7 @@
   </footer>
 
   <!-- ── Scripts ── -->
-  <script src="script.js"></script>
+  <script src="script.js?v=20260618-es"></script>
 
 </body>
 </html>

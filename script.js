@@ -1,5 +1,5 @@
 /* ============================================================
-   OCI DevOps — Bilingual Website Script
+   OCI DevOps — Multilingual Website Script
    Features: Language toggle, scroll animations, pipeline
    ============================================================ */
 
@@ -8,38 +8,192 @@
 /* ── Language Management ── */
 const body        = document.body;
 const langBtnEn   = document.getElementById('lang-en');
+const langBtnEs   = document.getElementById('lang-es');
 const langBtnAr   = document.getElementById('lang-ar');
 const htmlEl      = document.documentElement;
 
 let currentLang = localStorage.getItem('oci-lang') || 'en';
 
+const spanishTranslations = {
+  'Services': 'Servicios',
+  'Pipeline': 'Pipeline',
+  'Deployment': 'Despliegue',
+  'Why OCI': 'Por que OCI',
+  'Contact': 'Contacto',
+  'Get Started': 'Comenzar',
+  '🚀 Oracle Cloud Infrastructure': '🚀 Oracle Cloud Infrastructure',
+  'Accelerate Your Delivery\nwith OCI DevOps': 'Acelera tus entregas\ncon OCI DevOps',
+  'A fully managed, end-to-end CI/CD platform on Oracle Cloud. Build, test, and deploy applications faster — with enterprise-grade security, governance, and observability built in.': 'Una plataforma CI/CD integral y administrada en Oracle Cloud. Construye, prueba y despliega aplicaciones mas rapido, con seguridad, gobierno y observabilidad empresarial integrados.',
+  'Start Your Project': 'Inicia tu proyecto',
+  'Explore Services': 'Explorar servicios',
+  'Uptime SLA': 'SLA de disponibilidad',
+  'Deploy Targets': 'Destinos de despliegue',
+  'Ideal Cost': 'Costo ideal',
+  'Build Pipeline': 'Pipeline de build',
+  'Running • 2m 18s': 'En ejecucion • 2m 18s',
+  'OKE Deployment': 'Despliegue OKE',
+  '✓ Succeeded • 3 pods': '✓ Correcto • 3 pods',
+  'Canary Release': 'Release canary',
+  '10% → 100% traffic': '10% → 100% trafico',
+  '⚙️ CI/CD Pipeline': '⚙️ Pipeline CI/CD',
+  'From Code to Production in Minutes': 'Del codigo a produccion en minutos',
+  'OCI DevOps automates every stage of your software delivery workflow with built-in quality gates and approvals.': 'OCI DevOps automatiza cada etapa de entrega de software con controles de calidad y aprobaciones integradas.',
+  'Code': 'Codigo',
+  'Build': 'Build',
+  'Test': 'Pruebas',
+  'Package': 'Paquete',
+  'Approve': 'Aprobar',
+  'Deploy': 'Desplegar',
+  'Monitor': 'Monitorear',
+  '🛠️ Core Services': '🛠️ Servicios principales',
+  'Everything You Need to Ship Faster': 'Todo lo que necesitas para entregar mas rapido',
+  'OCI Ops provides DevOps, Azure DevOps integration, cloud infrastructure, automation, and platform engineering services across the tools your teams already use.': 'OCI Ops ofrece servicios de DevOps, integracion con Azure DevOps, infraestructura cloud, automatizacion e ingenieria de plataformas sobre las herramientas que tus equipos ya usan.',
+  'Code Repositories': 'Repositorios de codigo',
+  'Private Git repositories hosted on OCI with pull requests, code reviews, branch protection rules, and repository insights. Scale without limits.': 'Repositorios Git privados en OCI con pull requests, revisiones de codigo, reglas de proteccion de ramas e informacion del repositorio. Escala sin limites.',
+  'Code Review': 'Revision de codigo',
+  'Build Pipelines (CI)': 'Pipelines de build (CI)',
+  'Automated build stages that compile, test, and package your code. Run parallel stages, use managed build runners, and cache dependencies for speed.': 'Etapas automatizadas que compilan, prueban y empaquetan tu codigo. Ejecuta etapas paralelas, usa runners administrados y cachea dependencias para mayor velocidad.',
+  'Parallel Stages': 'Etapas paralelas',
+  'Build Cache': 'Cache de build',
+  'Deployment Pipelines (CD)': 'Pipelines de despliegue (CD)',
+  'Deploy to OCI Compute, OKE Kubernetes clusters, or Oracle Functions. Supports Blue-Green and Canary strategies with automatic traffic shifting and rollback.': 'Despliega en OCI Compute, clusters OKE Kubernetes u Oracle Functions. Soporta estrategias blue-green y canary con cambio automatico de trafico y rollback.',
+  'Security & OCI Vault': 'Seguridad y OCI Vault',
+  'Securely manage secrets, certificates, and encryption keys with OCI Vault integration. Role-based access with IAM policies and audit logging across every pipeline step.': 'Gestiona secretos, certificados y claves de cifrado con OCI Vault. Acceso por roles con politicas IAM y auditoria en cada paso del pipeline.',
+  'Secrets': 'Secretos',
+  'OKE Kubernetes Integration': 'Integracion OKE Kubernetes',
+  'First-class integration with Oracle Kubernetes Engine. Deploy containerized workloads to OKE clusters with private endpoint support, namespace targeting, and Helm chart deployments.': 'Integracion de primera clase con Oracle Kubernetes Engine. Despliega cargas contenerizadas en OKE con endpoints privados, namespaces y Helm charts.',
+  'Observability & Logging': 'Observabilidad y logs',
+  'Real-time visibility into build and deployment pipelines via OCI Logging and Monitoring integration. Create custom dashboards, alerts, and trace pipeline execution history.': 'Visibilidad en tiempo real de pipelines de build y despliegue con OCI Logging y Monitoring. Crea dashboards, alertas y trazabilidad de ejecucion.',
+  'Monitoring': 'Monitoreo',
+  'Alerts': 'Alertas',
+  'Azure DevOps Services Setup': 'Configuracion de Azure DevOps Services',
+  'Design and configure Azure DevOps projects, boards, repos, pipelines, approvals, service connections, and secure integrations with OCI, Azure, GitHub, Docker, Kubernetes, and third-party tools.': 'Disenamos y configuramos proyectos, boards, repos, pipelines, aprobaciones, service connections e integraciones seguras con OCI, Azure, GitHub, Docker, Kubernetes y herramientas de terceros.',
+  'All Platforms': 'Todas las plataformas',
+  'Azure DevOps Integration': 'Integracion con Azure DevOps',
+  'Connect Azure DevOps with OCI, Azure, GitHub, Bitbucket, Jira, Slack, Teams, container registries, Kubernetes clusters, security scanners, and release approval workflows.': 'Conecta Azure DevOps con OCI, Azure, GitHub, Bitbucket, Jira, Slack, Teams, registries de contenedores, clusters Kubernetes, scanners de seguridad y flujos de aprobacion.',
+  'Release Gates': 'Controles de release',
+  'Cloud Infrastructure Services': 'Servicios de infraestructura cloud',
+  'Plan, build, and automate secure cloud foundations: networking, compute, Kubernetes, load balancers, DNS, certificates, backups, monitoring, IAM, and infrastructure as code.': 'Planifica, construye y automatiza bases cloud seguras: redes, compute, Kubernetes, balanceadores, DNS, certificados, backups, monitoreo, IAM e infraestructura como codigo.',
+  'Cloud Foundation': 'Base cloud',
+  'OCI Cost Optimization': 'Optimizacion de costos OCI',
+  'Analyze OCI usage, right-size compute, optimize storage, review idle resources, improve tagging, set budgets, and build dashboards that help teams control cloud spend.': 'Analiza el uso de OCI, ajusta compute, optimiza storage, revisa recursos inactivos, mejora etiquetas, configura presupuestos y dashboards para controlar el gasto cloud.',
+  'Right Sizing': 'Ajuste de tamanos',
+  'Spend Control': 'Control de gasto',
+  'Database Health Check': 'Health Check de bases de datos',
+  'Review database performance, backup posture, security configuration, capacity trends, patching status, slow queries, high availability, and operational risks.': 'Revisa rendimiento, backups, seguridad, tendencias de capacidad, parches, consultas lentas, alta disponibilidad y riesgos operativos de bases de datos.',
+  'Availability': 'Disponibilidad',
+  'Grafana Setup': 'Configuracion de Grafana',
+  'Install and configure Grafana dashboards, data sources, alerts, SSO, folders, permissions, and monitoring views for infrastructure, applications, Kubernetes, and databases.': 'Instala y configura dashboards de Grafana, fuentes de datos, alertas, SSO, carpetas, permisos y vistas de monitoreo para infraestructura, aplicaciones, Kubernetes y bases de datos.',
+  '🎯 Deployment Targets': '🎯 Destinos de despliegue',
+  'Deploy Anywhere on OCI': 'Despliega en cualquier lugar de OCI',
+  'One pipeline, multiple targets. OCI DevOps supports rolling, blue-green, and canary releases across all OCI compute services.': 'Un pipeline, multiples destinos. OCI DevOps soporta releases rolling, blue-green y canary en los servicios compute de OCI.',
+  'Containerized workloads, Helm charts, private clusters': 'Cargas contenerizadas, Helm charts, clusters privados',
+  'OCI Compute Instances': 'Instancias OCI Compute',
+  'VM / Bare Metal rolling deployments with instance groups': 'Despliegues rolling en VM / Bare Metal con grupos de instancias',
+  'Serverless functions — zero infrastructure to manage': 'Funciones serverless, sin infraestructura que administrar',
+  'Blue-Green Strategy': 'Estrategia blue-green',
+  'Zero-downtime deployments with instant switchover': 'Despliegues sin downtime con cambio instantaneo',
+  'Canary Releases': 'Releases canary',
+  'Gradual traffic shifting from 1% to 100% with auto-rollback': 'Cambio gradual de trafico de 1% a 100% con rollback automatico',
+  '✨ Why Choose OCI DevOps': '✨ Por que elegir OCI DevOps',
+  'Built for Enterprise Scale': 'Construido para escala empresarial',
+  "OCI DevOps combines the simplicity of a managed service with the power of Oracle's global cloud infrastructure.": 'OCI DevOps combina la simplicidad de un servicio administrado con la potencia de la infraestructura global de Oracle Cloud.',
+  'Platform Uptime SLA': 'SLA de disponibilidad de plataforma',
+  'OCI Regions Worldwide': 'Regiones OCI en el mundo',
+  'Managed Infrastructure': 'Infraestructura administrada',
+  'Pay-as-You-Go Model': 'Modelo pay-as-you-go',
+  'No upfront costs. You only pay for compute time during builds and deployments — zero cost when pipelines are idle.': 'Sin costos iniciales. Pagas solo por compute durante builds y despliegues, con costo cero cuando los pipelines estan inactivos.',
+  'Enterprise Governance': 'Gobierno empresarial',
+  'Built-in approval gates, audit trails, and RBAC via OCI IAM ensure full control over every deployment.': 'Aprobaciones integradas, auditoria y RBAC con OCI IAM aseguran control total sobre cada despliegue.',
+  'Auto-Scaling': 'Autoescalado',
+  'Build runners scale on-demand. Never wait for resources — OCI provisions managed compute automatically for every build.': 'Los runners escalan bajo demanda. No esperes recursos: OCI aprovisiona compute administrado automaticamente para cada build.',
+  'Infrastructure as Code': 'Infraestructura como codigo',
+  'Deep integration with OCI Resource Manager (Terraform) to provision infrastructure alongside application deployments.': 'Integracion con OCI Resource Manager (Terraform) para aprovisionar infraestructura junto con despliegues de aplicaciones.',
+  'Security by Default': 'Seguridad por defecto',
+  'OCI Vault for secrets, end-to-end encryption, private endpoint support, and compliance with global security standards.': 'OCI Vault para secretos, cifrado extremo a extremo, endpoints privados y cumplimiento de estandares globales de seguridad.',
+  'Multi-Region Availability': 'Disponibilidad multiregion',
+  'Deploy to 40+ OCI regions worldwide. Use multi-region pipelines for disaster recovery and global distribution.': 'Despliega en mas de 40 regiones OCI. Usa pipelines multiregion para recuperacion ante desastres y distribucion global.',
+  '🚀 Project Intake': '🚀 Solicitud de proyecto',
+  'Tell Us About Your\nCloud Project': 'Cuentanos sobre tu proyecto cloud',
+  'Share your project goals and contact details. Our team will review the request and get in touch to plan the right OCI DevOps path.': 'Comparte tus objetivos y datos de contacto. Nuestro equipo revisara la solicitud y se pondra en contacto para planificar el camino adecuado.',
+  'Fast response': 'Respuesta rapida',
+  'Project review and first contact': 'Revision del proyecto y primer contacto',
+  'Clear scope': 'Alcance claro',
+  'CI/CD, OKE, security, and migration needs': 'Necesidades de CI/CD, OKE, seguridad y migracion',
+  'Full name': 'Nombre completo',
+  'Email': 'Correo electronico',
+  'Phone / WhatsApp': 'Telefono / WhatsApp',
+  'Company': 'Empresa',
+  'Project type': 'Tipo de proyecto',
+  'Timeline': 'Plazo',
+  'Project details': 'Detalles del proyecto',
+  'Send Project Details': 'Enviar detalles del proyecto',
+  'Submit the form and we will receive your request at support@ociops.com.': 'Envia el formulario y recibiremos tu solicitud en support@ociops.com.',
+  '© 2026 OCI Ops. All rights reserved.': '© 2026 OCI Ops. Todos los derechos reservados.',
+  'Docs': 'Documentacion',
+  'Support': 'Soporte'
+};
+
+function applySpanishTranslations() {
+  document.querySelectorAll('.content-en').forEach(element => {
+    if (!element.dataset.enText) {
+      element.dataset.enText = element.textContent.trim();
+      element.dataset.enHtml = element.innerHTML;
+    }
+    const originalText = element.dataset.enText;
+    element.textContent = spanishTranslations[originalText] || originalText;
+  });
+}
+
+function restoreEnglishText() {
+  document.querySelectorAll('.content-en[data-en-html]').forEach(element => {
+    element.innerHTML = element.dataset.enHtml;
+  });
+}
+
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('oci-lang', lang);
+  restoreEnglishText();
 
   if (lang === 'ar') {
     body.classList.add('lang-ar');
+    body.classList.remove('lang-es');
     htmlEl.setAttribute('lang', 'ar');
     htmlEl.setAttribute('dir', 'rtl');
     langBtnAr.classList.add('active');
     langBtnEn.classList.remove('active');
-  } else {
+    langBtnEs.classList.remove('active');
+  } else if (lang === 'es') {
     body.classList.remove('lang-ar');
+    body.classList.add('lang-es');
+    htmlEl.setAttribute('lang', 'es');
+    htmlEl.setAttribute('dir', 'ltr');
+    langBtnEs.classList.add('active');
+    langBtnEn.classList.remove('active');
+    langBtnAr.classList.remove('active');
+    applySpanishTranslations();
+  } else {
+    body.classList.remove('lang-ar', 'lang-es');
     htmlEl.setAttribute('lang', 'en');
     htmlEl.setAttribute('dir', 'ltr');
     langBtnEn.classList.add('active');
     langBtnAr.classList.remove('active');
+    langBtnEs.classList.remove('active');
   }
 
-  document.querySelectorAll('option[data-en][data-ar]').forEach(option => {
-    option.textContent = option.dataset[lang];
+  document.querySelectorAll('option[data-en]').forEach(option => {
+    option.textContent = option.dataset[lang] || option.dataset.en;
   });
 
   // Restart pipeline animation on lang change
   restartPipelineAnimation();
 }
 
+window.setLanguage = setLanguage;
+
 langBtnEn.addEventListener('click', () => setLanguage('en'));
+langBtnEs.addEventListener('click', () => setLanguage('es'));
 langBtnAr.addEventListener('click', () => setLanguage('ar'));
 
 /* ── Navigation: Scroll Effect ── */
@@ -195,13 +349,19 @@ const formNote = document.getElementById('form-note');
 const WEB3FORMS_ACCESS_KEY = '51d334ef-aab9-4249-b953-272c2ecec346';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
-function setFormNote(type, enText, arText) {
+function setFormNote(type, enText, arText, esText = enText) {
   if (!formNote) return;
+
+  const enNote = formNote.querySelector('.content-en');
+  const arNote = formNote.querySelector('.content-ar');
 
   formNote.classList.remove('success', 'error');
   if (type) formNote.classList.add(type);
-  formNote.querySelector('.content-en').textContent = enText;
-  formNote.querySelector('.content-ar').textContent = arText;
+
+  enNote.dataset.enText = enText;
+  enNote.dataset.enHtml = enText;
+  enNote.textContent = currentLang === 'es' ? esText : enText;
+  arNote.textContent = arText;
 }
 
 if (projectForm) {
@@ -251,7 +411,8 @@ if (projectForm) {
     setFormNote(
       null,
       'Sending your request...',
-      'جاري إرسال طلبك...'
+      'جاري إرسال طلبك...',
+      'Enviando tu solicitud...'
     );
 
     try {
@@ -272,13 +433,15 @@ if (projectForm) {
       setFormNote(
         'success',
         'Request sent successfully. We will contact you soon.',
-        'تم إرسال الطلب بنجاح. سنتواصل معك قريباً.'
+        'تم إرسال الطلب بنجاح. سنتواصل معك قريباً.',
+        'Solicitud enviada correctamente. Nos pondremos en contacto pronto.'
       );
     } catch (error) {
       setFormNote(
         'error',
         'Sorry, the request could not be sent. Please email support@ociops.com.',
-        'عذراً، تعذر إرسال الطلب. يرجى مراسلة support@ociops.com.'
+        'عذراً، تعذر إرسال الطلب. يرجى مراسلة support@ociops.com.',
+        'Lo sentimos, no se pudo enviar la solicitud. Escribe a support@ociops.com.'
       );
     } finally {
       if (submitButton) {
