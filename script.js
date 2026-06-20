@@ -18,6 +18,7 @@ const spanishTranslations = {
   'Services': 'Servicios',
   'Pipeline': 'Pipeline',
   'Deployment': 'Despliegue',
+  'Regions': 'Regiones',
   'Why OCI': 'Por que OCI',
   'Contact': 'Contacto',
   'Get Started': 'Comenzar',
@@ -132,6 +133,19 @@ const spanishTranslations = {
   '© 2026 OCI Ops. All rights reserved.': '© 2026 OCI Ops. Todos los derechos reservados.',
   'Docs': 'Documentacion',
   'Support': 'Soporte'
+  ,
+  'Home': 'Inicio',
+  '🌐 OCI Global Footprint': '🌐 Presencia global de OCI',
+  'OCI Regions Map': 'Mapa de regiones OCI',
+  'Plan deployments across Oracle Cloud commercial regions. Use this map to compare region locations, availability domains, and geographic coverage for resilient architecture design.': 'Planifica despliegues en regiones comerciales de Oracle Cloud. Usa este mapa para comparar ubicaciones, dominios de disponibilidad y cobertura geografica para disenos resilientes.',
+  'Commercial regions listed': 'Regiones comerciales listadas',
+  'Continental groups': 'Grupos continentales',
+  'Primary commercial realm': 'Realm comercial principal',
+  '📍 Commercial Regions': '📍 Regiones comerciales',
+  'Region Directory': 'Directorio de regiones',
+  "Based on Oracle's public OCI commercial realms list. Availability domain counts are shown as AD.": 'Basado en la lista publica de regiones comerciales de OCI de Oracle. Los dominios de disponibilidad se muestran como AD.',
+  'Source: Oracle Cloud Infrastructure documentation, "Regions and Availability Domains." Exact data center addresses are not published here; city-level region locations are used for architecture planning.': 'Fuente: documentacion de Oracle Cloud Infrastructure, "Regions and Availability Domains." No se publican direcciones exactas de data centers; se usan ubicaciones por ciudad para planificacion de arquitectura.',
+  'Oracle Regions Docs': 'Docs de regiones Oracle'
 };
 
 function applySpanishTranslations() {

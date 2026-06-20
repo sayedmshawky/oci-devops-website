@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>OCI Regions Map — Oracle Cloud Data Center Locations | OCI Ops</title>
+  <meta name="description" content="Explore Oracle Cloud Infrastructure commercial regions and data center locations on a global map, with availability domain counts and region identifiers." />
+  <meta name="keywords" content="OCI regions, Oracle Cloud regions, Oracle data centers, cloud region map, OCI availability domains" />
+  <meta name="author" content="OCI Ops" />
+
+  <meta property="og:title" content="OCI Regions Map — Oracle Cloud Data Center Locations" />
+  <meta property="og:description" content="Interactive-style OCI commercial region map and directory for cloud architecture planning." />
+  <meta property="og:image" content="hero.png" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-blob bg-blob-1" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob-2" aria-hidden="true"></div>
+
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="nav-home-link">
+        <div class="nav-logo-icon">OCI</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-top">Oracle Cloud</span>
+          <span class="nav-logo-bottom">DevOps</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links-list">
+        <li><a href="index.html#services" id="nav-services"><span class="content-en">Services</span><span class="content-ar">الخدمات</span></a></li>
+        <li><a href="index.html#pipeline" id="nav-pipeline"><span class="content-en">Pipeline</span><span class="content-ar">خط الأنابيب</span></a></li>
+        <li><a href="index.html#deploy" id="nav-deploy"><span class="content-en">Deployment</span><span class="content-ar">النشر</span></a></li>
+        <li><a href="regions.html" id="nav-regions"><span class="content-en">Regions</span><span class="content-ar">المناطق</span></a></li>
+        <li><a href="index.html#why" id="nav-why"><span class="content-en">Why OCI</span><span class="content-ar">لماذا OCI</span></a></li>
+        <li><a href="index.html#contact" id="nav-contact"><span class="content-en">Contact</span><span class="content-ar">تواصل معنا</span></a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <div class="lang-toggle" role="group" aria-label="Language selector">
+          <button class="lang-btn active" id="lang-en" aria-label="Switch to English" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" id="lang-es" aria-label="Cambiar a español" onclick="setLanguage('es')">ES</button>
+          <button class="lang-btn" id="lang-ar" aria-label="التبديل إلى العربية" onclick="setLanguage('ar')">AR</button>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary" id="nav-cta-btn" style="padding: 10px 22px; font-size: 0.88rem;">
+          <span class="content-en">Get Started</span>
+          <span class="content-ar">ابدأ الآن</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="index.html#services"><span class="content-en">Services</span><span class="content-ar">الخدمات</span></a>
+    <a href="index.html#pipeline"><span class="content-en">Pipeline</span><span class="content-ar">خط الأنابيب</span></a>
+    <a href="index.html#deploy"><span class="content-en">Deployment</span><span class="content-ar">النشر</span></a>
+    <a href="regions.html"><span class="content-en">Regions</span><span class="content-ar">المناطق</span></a>
+    <a href="index.html#why"><span class="content-en">Why OCI</span><span class="content-ar">لماذا OCI</span></a>
+    <a href="index.html#contact"><span class="content-en">Contact</span><span class="content-ar">تواصل معنا</span></a>
+  </div>
+
+  <main class="regions-page">
+    <section class="regions-hero" aria-labelledby="regions-heading">
+      <div class="container">
+        <div class="regions-hero-grid">
+          <div>
+            <div class="tag">
+              <span class="content-en">🌐 OCI Global Footprint</span>
+              <span class="content-ar">🌐 الانتشار العالمي لـ OCI</span>
+            </div>
+            <h1 class="hero-title" id="regions-heading">
+              <span class="content-en">OCI Regions Map</span>
+              <span class="content-ar">خريطة مناطق OCI</span>
+            </h1>
+            <p class="hero-subtitle">
+              <span class="content-en">Plan deployments across Oracle Cloud commercial regions. Use this map to compare region locations, availability domains, and geographic coverage for resilient architecture design.</span>
+              <span class="content-ar">خطط لعمليات النشر عبر مناطق Oracle Cloud التجارية. استخدم هذه الخريطة لمقارنة المواقع ونطاق التوفر والتغطية الجغرافية لتصميم معماريات مرنة.</span>
+            </p>
+            <div class="regions-summary" aria-label="OCI commercial region summary">
+              <div class="regions-summary-card">
+                <strong>45</strong>
+                <span class="content-en">Commercial regions listed</span>
+                <span class="content-ar">منطقة تجارية مدرجة</span>
+              </div>
+              <div class="regions-summary-card">
+                <strong>6</strong>
+                <span class="content-en">Continental groups</span>
+                <span class="content-ar">مجموعات قارية</span>
+              </div>
+              <div class="regions-summary-card">
+                <strong>OC1</strong>
+                <span class="content-en">Primary commercial realm</span>
+                <span class="content-ar">النطاق التجاري الأساسي</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="regions-map-card" aria-label="Stylized world map of OCI commercial regions">
+            <div class="regions-map" aria-hidden="true">
+              <div class="map-continent map-na"></div>
+              <div class="map-continent map-sa"></div>
+              <div class="map-continent map-eu"></div>
+              <div class="map-continent map-af"></div>
+              <div class="map-continent map-asia"></div>
+              <div class="map-continent map-au"></div>
+
+              <span class="map-marker" style="--x:26%;--y:29%;" aria-label="Montreal, Canada — ca-montreal-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:24%;--y:31%;" aria-label="Toronto, Canada — ca-toronto-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:25%;--y:38%;" data-ad="3" aria-label="Ashburn, USA — us-ashburn-1 — 3 ADs"></span>
+              <span class="map-marker" style="--x:22%;--y:36%;" data-ad="3" aria-label="Chicago, USA — us-chicago-1 — 3 ADs"></span>
+              <span class="map-marker" style="--x:16%;--y:42%;" data-ad="3" aria-label="Phoenix, USA — us-phoenix-1 — 3 ADs"></span>
+              <span class="map-marker" style="--x:13%;--y:40%;" aria-label="San Jose, USA — us-sanjose-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:20%;--y:49%;" aria-label="Queretaro, Mexico — mx-queretaro-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:19%;--y:47%;" aria-label="Monterrey, Mexico — mx-monterrey-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:26%;--y:56%;" aria-label="Bogota, Colombia — sa-bogota-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:31%;--y:78%;" aria-label="Santiago and Valparaiso, Chile — 2 regions — 1 AD each"></span>
+              <span class="map-marker" style="--x:38%;--y:69%;" aria-label="Sao Paulo and Vinhedo, Brazil — 2 regions — 1 AD each"></span>
+
+              <span class="map-marker" style="--x:48%;--y:32%;" data-ad="3" aria-label="London, UK — uk-london-1 — 3 ADs"></span>
+              <span class="map-marker" style="--x:47%;--y:33%;" aria-label="Newport, UK — uk-cardiff-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:50%;--y:31%;" aria-label="Amsterdam, Netherlands — eu-amsterdam-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:50%;--y:34%;" aria-label="Paris, France — eu-paris-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:51%;--y:37%;" aria-label="Marseille, France — eu-marseille-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:52%;--y:33%;" data-ad="3" aria-label="Frankfurt, Germany — eu-frankfurt-1 — 3 ADs"></span>
+              <span class="map-marker" style="--x:52%;--y:36%;" aria-label="Milan and Turin, Italy — 2 regions — 1 AD each"></span>
+              <span class="map-marker" style="--x:54%;--y:25%;" aria-label="Stockholm, Sweden — eu-stockholm-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:52%;--y:34.5%;" aria-label="Zurich, Switzerland — eu-zurich-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:48.5%;--y:39%;" aria-label="Madrid, Spain — eu-madrid-1 and eu-madrid-3 — 1 AD each"></span>
+              <span class="map-marker" style="--x:55%;--y:38%;" aria-label="Jovanovac, Serbia — eu-jovanovac-1 — 1 AD"></span>
+
+              <span class="map-marker" style="--x:47%;--y:44%;" aria-label="Casablanca, Morocco — af-casablanca-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:56%;--y:75%;" aria-label="Johannesburg, South Africa — af-johannesburg-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:58%;--y:49%;" aria-label="Jeddah, Saudi Arabia — me-jeddah-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:60%;--y:47%;" aria-label="Riyadh, Saudi Arabia — me-riyadh-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:63%;--y:49%;" aria-label="Abu Dhabi and Dubai, UAE — 2 regions — 1 AD each"></span>
+              <span class="map-marker" style="--x:57%;--y:43%;" aria-label="Jerusalem, Israel — il-jerusalem-1 — 1 AD"></span>
+
+              <span class="map-marker" style="--x:66%;--y:53%;" aria-label="Mumbai, India — ap-mumbai-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:68%;--y:52%;" aria-label="Hyderabad, India — ap-hyderabad-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:75%;--y:62%;" aria-label="Batam, Kulai, and Singapore cluster — multiple OCI regions"></span>
+              <span class="map-marker" style="--x:82%;--y:42%;" aria-label="Seoul, South Korea — ap-seoul-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:82%;--y:40%;" aria-label="Chuncheon, South Korea — ap-chuncheon-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:88%;--y:43%;" aria-label="Tokyo, Japan — ap-tokyo-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:86%;--y:45%;" aria-label="Osaka, Japan — ap-osaka-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:86%;--y:77%;" aria-label="Sydney, Australia — ap-sydney-1 — 1 AD"></span>
+              <span class="map-marker" style="--x:85%;--y:82%;" aria-label="Melbourne, Australia — ap-melbourne-1 — 1 AD"></span>
+            </div>
+            <div class="regions-map-legend">
+              <span><i class="legend-dot"></i>1 availability domain</span>
+              <span><i class="legend-dot ad3"></i>3 availability domains</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="regions-directory" aria-labelledby="regions-directory-heading">
+      <div class="container">
+        <div class="regions-directory-header">
+          <div>
+            <div class="tag">
+              <span class="content-en">📍 Commercial Regions</span>
+              <span class="content-ar">📍 المناطق التجارية</span>
+            </div>
+            <h2 class="section-title" id="regions-directory-heading">
+              <span class="content-en">Region Directory</span>
+              <span class="content-ar">دليل المناطق</span>
+            </h2>
+          </div>
+          <p class="section-subtitle" style="margin-bottom: 0;">
+            <span class="content-en">Based on Oracle's public OCI commercial realms list. Availability domain counts are shown as AD.</span>
+            <span class="content-ar">استناداً إلى قائمة Oracle العامة للمناطق التجارية في OCI. يتم عرض عدد نطاقات التوفر كـ AD.</span>
+          </p>
+        </div>
+
+        <div class="regions-directory-grid">
+          <article class="region-group">
+            <h3>North America</h3>
+            <ul class="region-list">
+              <li><span><span class="region-name">Canada Southeast (Montreal)</span><span class="region-meta">ca-montreal-1 · Montreal, Canada · YUL</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Canada Southeast (Toronto)</span><span class="region-meta">ca-toronto-1 · Toronto, Canada · YYZ</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Mexico Central (Queretaro)</span><span class="region-meta">mx-queretaro-1 · Queretaro, Mexico · QRO</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Mexico Northeast (Monterrey)</span><span class="region-meta">mx-monterrey-1 · Monterrey, Mexico · MTY</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">US East (Ashburn)</span><span class="region-meta">us-ashburn-1 · Ashburn, VA · IAD</span></span><span class="region-ad">3 AD</span></li>
+              <li><span><span class="region-name">US Midwest (Chicago)</span><span class="region-meta">us-chicago-1 · Chicago, IL · ORD</span></span><span class="region-ad">3 AD</span></li>
+              <li><span><span class="region-name">US West (Phoenix)</span><span class="region-meta">us-phoenix-1 · Phoenix, AZ · PHX</span></span><span class="region-ad">3 AD</span></li>
+              <li><span><span class="region-name">US West (San Jose)</span><span class="region-meta">us-sanjose-1 · San Jose, CA · SJC</span></span><span class="region-ad">1 AD</span></li>
+            </ul>
+          </article>
+
+          <article class="region-group">
+            <h3>South America</h3>
+            <ul class="region-list">
+              <li><span><span class="region-name">Brazil East (Sao Paulo)</span><span class="region-meta">sa-saopaulo-1 · Sao Paulo, Brazil · GRU</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Brazil Southeast (Vinhedo)</span><span class="region-meta">sa-vinhedo-1 · Vinhedo, Brazil · VCP</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Chile Central (Santiago)</span><span class="region-meta">sa-santiago-1 · Santiago, Chile · SCL</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Chile West (Valparaiso)</span><span class="region-meta">sa-valparaiso-1 · Valparaiso, Chile · VAP</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Colombia Central (Bogota)</span><span class="region-meta">sa-bogota-1 · Bogota, Colombia · BOG</span></span><span class="region-ad">1 AD</span></li>
+            </ul>
+          </article>
+
+          <article class="region-group">
+            <h3>Europe</h3>
+            <ul class="region-list">
+              <li><span><span class="region-name">France Central (Paris)</span><span class="region-meta">eu-paris-1 · Paris, France · CDG</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">France South (Marseille)</span><span class="region-meta">eu-marseille-1 · Marseille, France · MRS</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Germany Central (Frankfurt)</span><span class="region-meta">eu-frankfurt-1 · Frankfurt, Germany · FRA</span></span><span class="region-ad">3 AD</span></li>
+              <li><span><span class="region-name">Italy Northwest (Milan)</span><span class="region-meta">eu-milan-1 · Milan, Italy · LIN</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Italy North (Turin)</span><span class="region-meta">eu-turin-1 · Turin, Italy · NRQ</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Netherlands Northwest (Amsterdam)</span><span class="region-meta">eu-amsterdam-1 · Amsterdam, Netherlands · AMS</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Serbia Central (Jovanovac)</span><span class="region-meta">eu-jovanovac-1 · Jovanovac, Serbia · BEG · OC20</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Spain Central (Madrid)</span><span class="region-meta">eu-madrid-1 · Madrid, Spain · MAD</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Spain Central (Madrid 3)</span><span class="region-meta">eu-madrid-3 · Madrid, Spain · ORF</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Sweden Central (Stockholm)</span><span class="region-meta">eu-stockholm-1 · Stockholm, Sweden · ARN</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Switzerland North (Zurich)</span><span class="region-meta">eu-zurich-1 · Zurich, Switzerland · ZRH</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">UK South (London)</span><span class="region-meta">uk-london-1 · London, United Kingdom · LHR</span></span><span class="region-ad">3 AD</span></li>
+              <li><span><span class="region-name">UK West (Newport)</span><span class="region-meta">uk-cardiff-1 · Newport, United Kingdom · CWL</span></span><span class="region-ad">1 AD</span></li>
+            </ul>
+          </article>
+
+          <article class="region-group">
+            <h3>Middle East & Africa</h3>
+            <ul class="region-list">
+              <li><span><span class="region-name">Israel Central (Jerusalem)</span><span class="region-meta">il-jerusalem-1 · Jerusalem, Israel · MTZ</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Morocco West (Casablanca)</span><span class="region-meta">af-casablanca-1 · Casablanca, Morocco · LEJ</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Saudi Arabia Central (Riyadh)</span><span class="region-meta">me-riyadh-1 · Riyadh, Saudi Arabia · RUH</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Saudi Arabia West (Jeddah)</span><span class="region-meta">me-jeddah-1 · Jeddah, Saudi Arabia · JED</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">South Africa Central (Johannesburg)</span><span class="region-meta">af-johannesburg-1 · Johannesburg, South Africa · JNB</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">UAE Central (Abu Dhabi)</span><span class="region-meta">me-abudhabi-1 · Abu Dhabi, UAE · AUH</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">UAE East (Dubai)</span><span class="region-meta">me-dubai-1 · Dubai, UAE · DXB</span></span><span class="region-ad">1 AD</span></li>
+            </ul>
+          </article>
+
+          <article class="region-group">
+            <h3>Asia Pacific</h3>
+            <ul class="region-list">
+              <li><span><span class="region-name">India South (Hyderabad)</span><span class="region-meta">ap-hyderabad-1 · Hyderabad, India · HYD</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">India West (Mumbai)</span><span class="region-meta">ap-mumbai-1 · Mumbai, India · BOM</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Indonesia North (Batam)</span><span class="region-meta">ap-batam-1 · Batam, Indonesia · HSG</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Japan Central (Osaka)</span><span class="region-meta">ap-osaka-1 · Osaka, Japan · KIX</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Japan East (Tokyo)</span><span class="region-meta">ap-tokyo-1 · Tokyo, Japan · NRT</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Malaysia West 2 (Kulai)</span><span class="region-meta">ap-kulai-2 · Kulai, Malaysia · JBP</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Singapore (Singapore)</span><span class="region-meta">ap-singapore-1 · Singapore · SIN</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Singapore West (Singapore)</span><span class="region-meta">ap-singapore-2 · Singapore · XSP</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">South Korea Central (Seoul)</span><span class="region-meta">ap-seoul-1 · Seoul, South Korea · ICN</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">South Korea North (Chuncheon)</span><span class="region-meta">ap-chuncheon-1 · Chuncheon, South Korea · YNY</span></span><span class="region-ad">1 AD</span></li>
+            </ul>
+          </article>
+
+          <article class="region-group">
+            <h3>Australia</h3>
+            <ul class="region-list">
+              <li><span><span class="region-name">Australia East (Sydney)</span><span class="region-meta">ap-sydney-1 · Sydney, Australia · SYD</span></span><span class="region-ad">1 AD</span></li>
+              <li><span><span class="region-name">Australia Southeast (Melbourne)</span><span class="region-meta">ap-melbourne-1 · Melbourne, Australia · MEL</span></span><span class="region-ad">1 AD</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="section-subtitle" style="margin-top: 28px; max-width: 820px;">
+          <span class="content-en">Source: Oracle Cloud Infrastructure documentation, "Regions and Availability Domains." Exact data center addresses are not published here; city-level region locations are used for architecture planning.</span>
+          <span class="content-ar">المصدر: وثائق Oracle Cloud Infrastructure، "Regions and Availability Domains". لا يتم نشر عناوين مراكز البيانات الدقيقة هنا؛ تُستخدم مواقع المدن للتخطيط المعماري.</span>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>OCI DevOps</strong> &nbsp;·&nbsp;
+          <span class="content-en">© 2026 OCI Ops. All rights reserved.</span>
+          <span class="content-ar">© ٢٠٢٥ OCI Ops . جميع الحقوق محفوظة.</span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html"><span class="content-en">Home</span><span class="content-ar">الرئيسية</span></a></li>
+          <li><a href="index.html#services"><span class="content-en">Services</span><span class="content-ar">الخدمات</span></a></li>
+          <li><a href="https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm" target="_blank" rel="noopener"><span class="content-en">Oracle Regions Docs</span><span class="content-ar">وثائق مناطق Oracle</span></a></li>
+        </ul>
+        <div class="lang-toggle">
+          <button class="lang-btn" id="footer-lang-en" onclick="document.getElementById('lang-en').click()">EN</button>
+          <button class="lang-btn" id="footer-lang-es" onclick="document.getElementById('lang-es').click()">ES</button>
+          <button class="lang-btn" id="footer-lang-ar" onclick="document.getElementById('lang-ar').click()">AR</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20260620-regions"></script>
+</body>
+</html>
