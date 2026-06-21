@@ -1270,6 +1270,13 @@ body.lang-ar .form-row select {
   min-height: 620px;
 }
 
+.regions-map-card-reference {
+  aspect-ratio: 1280 / 543;
+  height: auto;
+  min-height: 0;
+  background: #F7F6F4;
+}
+
 .regions-map {
   position: absolute;
   inset: 0;
@@ -1280,6 +1287,27 @@ body.lang-ar .form-row select {
     radial-gradient(ellipse 74% 50% at 50% 52%, rgba(74,144,217,0.16) 0%, transparent 68%),
     linear-gradient(180deg, rgba(74,144,217,0.05), rgba(199,70,52,0.04));
   background-size: 94% auto, 38px 38px, 38px 38px, auto, auto;
+}
+
+.regions-map-reference {
+  background: #F7F6F4;
+}
+
+.regions-map-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #F7F6F4;
+}
+
+.regions-map-reference .map-continent,
+.regions-map-reference .map-marker,
+.regions-map-reference .map-label,
+.regions-map-reference ~ .regions-map-legend {
+  display: none;
 }
 
 .map-continent {
